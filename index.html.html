@@ -1,0 +1,706 @@
+<html><head><base href="https://mythicrealmworks.com">
+<style>
+:root {
+  --gradient-bg: linear-gradient(135deg, #0a0a0f 0%, #1a1a3a 100%);
+  --accent-gold: #ffd700;
+  --text-primary: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--gradient-bg);
+  color: var(--text-primary);
+  font-family: 'Cinzel', serif;
+  overflow-x: hidden;
+}
+
+.cover-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.mystical-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.logo-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 2rem;
+  animation: logoFloat 6s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.tagline {
+  font-size: 2.5rem;
+  text-align: center;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards 1s;
+}
+
+.studio-name {
+  font-size: 3.5rem;
+  color: var(--accent-gold);
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.magical-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.portfolio-section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-section#animation {
+  background: url('/animation.webp') center/cover;
+}
+
+.portfolio-section#games {
+  background: url('/joker.jpeg') center/cover;
+}
+
+.portfolio-section#animation::before,
+.portfolio-section#games::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 15, 0.85);
+  z-index: 1;
+}
+
+.portfolio-section#games::before {
+  background: rgba(10, 10, 15, 0.90);
+}
+
+.section-title {
+  font-size: 3rem;
+  color: var(--accent-gold);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-item {
+  background: rgba(26, 26, 58, 0.7);
+  border: 1px solid var(--accent-gold);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.portfolio-item h3 {
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+.portfolio-item p {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.intro-text {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  position: relative;
+  z-index: 2;
+}
+
+.achievements {
+  margin-top: 4rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.achievement-item {
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 20px;
+  color: var(--accent-gold);
+}
+
+.contact-section {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: rgba(26, 26, 58, 0.7);
+  border-top: 1px solid var(--accent-gold);
+  position: relative;
+  z-index: 2;
+}
+
+.contact-section h2 {
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+.contact-section .cta {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+}
+
+.about-section,
+.technology-section,
+.collaborations-section {
+  padding: 4rem 2rem;
+  position: relative;
+  background: var(--gradient-bg);
+  z-index: 1;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.timeline-item {
+  padding: 1rem;
+  border-left: 2px solid var(--accent-gold);
+  margin-left: 2rem;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.tech-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.tool-item {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 20px;
+  color: var(--accent-gold);
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.partner-item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(26, 26, 58, 0.7);
+  border-radius: 10px;
+}
+
+.testimonials {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent-gold);
+  color: var(--text-primary);
+  border-radius: 5px;
+}
+
+.footer {
+  background: rgba(10, 10, 15, 0.95);
+  padding: 2rem;
+  text-align: center;
+}
+
+.newsletter-signup {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+<div class="cover-page">
+  <h1 class="studio-name">Mythic Realmworks Studios</h1>
+  <!-- Mystical Background SVG -->
+  <svg class="mystical-bg" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Mystical patterns and symbols -->
+    <g fill="none" stroke="#4a4a8a" stroke-width="0.5">
+      <path d="M0,0 Q500,200 1000,0" />
+      <path d="M0,200 Q500,400 1000,200" />
+      <path d="M0,400 Q500,600 1000,400" />
+      <path d="M0,600 Q500,800 1000,600" />
+      <path d="M0,800 Q500,1000 1000,800" />
+    </g>
+  </svg>
+
+  <!-- Logo SVG -->
+  <div class="logo-container">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#ff8c00;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      
+      <!-- Dragon symbol -->
+      <path d="M100,20 C140,20 180,60 180,100 C180,140 140,180 100,180 C60,180 20,140 20,100 C20,60 60,20 100,20"
+            fill="none" stroke="url(#logoGradient)" stroke-width="4" filter="url(#glow)">
+        <animate attributeName="stroke-dasharray" 
+                 from="0,1000" to="1000,0"
+                 dur="3s" fill="freeze" />
+      </path>
+      
+      <!-- Magical runes -->
+      <g fill="url(#logoGradient)" filter="url(#glow)">
+        <circle cx="100" cy="100" r="5" />
+        <circle cx="120" cy="80" r="3" />
+        <circle cx="80" cy="120" r="3" />
+        <circle cx="130" cy="130" r="3" />
+        <circle cx="70" cy="70" r="3" />
+      </g>
+    </svg>
+  </div>
+
+  <h1 class="tagline">Where Worlds and Adventures Are Born</h1>
+
+  <!-- Magical Particles -->
+  <canvas class="magical-particles"></canvas>
+</div>
+
+<section class="about-section">
+  <h2 class="section-title">Our Story</h2>
+  <div class="intro-text">
+    Welcome to Mythic Realmworks Studios, where artistic innovation meets cutting-edge technology. Our journey began with a vision to create exceptional animation and game experiences that push the boundaries of imagination.
+  </div>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>2020</h3>
+      <p>Studio Founded</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2021</h3>
+      <p>First Animation Release: "The Lost Chronicles"</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2022</h3>
+      <p>Launch of Gaming Division</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2023</h3>
+      <p>Major Industry Partnership</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="animation">
+  <img class="section-bg" 
+       src="/animation.webp" 
+       alt="A digital illustration showing stages of AI character design, featuring a dark-skinned boy with glasses wearing teal and blue clothing" 
+       width="1920" 
+       height="1080"
+       style="display: none;">
+  <h2 class="section-title">Animation: Breathing Life into Stories</h2>
+  
+  <div class="intro-text">
+    At Mythic Realmworks Studios, we transform imagination into stunning visual narratives. Our animation division specializes in creating rich, character-driven stories that captivate audiences through innovative techniques and passionate storytelling.
+  </div>
+
+  <div class="service-grid">
+    <div class="service-item">
+      <h3>2D Animation</h3>
+      <p>Traditional hand-drawn and digital animation focusing on expressive storytelling.</p>
+    </div>
+    <div class="service-item">
+      <h3>3D Animation</h3>
+      <p>High-end CGI animation for films and series using cutting-edge technology.</p>
+    </div>
+    <div class="service-item">
+      <h3>Motion Graphics & VFX</h3>
+      <p>Combining animation with live-action for stunning visual effects.</p>
+    </div>
+    <div class="service-item">
+      <h3>Stop Motion</h3>
+      <p>Crafting physical models frame by frame for unique animations.</p>
+    </div>
+  </div>
+  
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <h3>Celestial Saga</h3>
+      <p>A high-fantasy animated series featuring ancient warriors and mythical realms, emphasizing intricate character animation and world-building.</p>
+    </div>
+    
+    <div class="portfolio-item">
+      <h3>Drakon's Quest</h3>
+      <p>A short film focused on a dragon's journey, with lush landscapes and powerful, dramatic visuals.</p>
+    </div>
+    
+    <div class="portfolio-item">
+      <h3>Battleborn Legends</h3>
+      <p>An action-packed series centered on legendary warriors and intense battles, showcasing fluid animation techniques.</p>
+    </div>
+    
+    <div class="portfolio-item">
+      <h3>Forest of Fables</h3>
+      <p>A folklore-inspired 2D series with warm, traditional art styles and enchanting natural settings.</p>
+    </div>
+  </div>
+  
+  <div class="achievements">
+    <div class="achievement-item">Best Animation in Fantasy 2023</div>
+    <div class="achievement-item">Audience Choice Award – Short Film</div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="games">
+  <img class="section-bg"
+       src="/joker.jpeg"
+       alt="A close-up, dramatic depiction of the Joker with glowing red eyes and thorny elements, rendered in a dark, gritty style" 
+       width="1920"
+       height="1080"
+       style="display: none;">
+  <h2 class="section-title">Game Development: Crafting Playable Worlds</h2>
+  
+  <div class="intro-text">
+    Our game development division creates immersive, multi-genre games that transport players into vast and engaging worlds. Through innovative gameplay mechanics and rich storytelling, we craft unforgettable gaming experiences.
+  </div>
+  
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <h3>Realm of the Elders</h3>
+      <p>A story-driven RPG with an expansive open world, magical elements, and rich character development.</p>
+    </div>
+    
+    <div class="portfolio-item">
+      <h3>Shadowbound</h3>
+      <p>A game based on stealth mechanics and a dark, mysterious storyline.</p>
+    </div>
+    
+    <div class="portfolio-item">
+      <h3>Mystic Puzzles</h3>
+      <p>A relaxing mobile puzzle game with beautiful, hand-drawn backgrounds and myth-inspired design.</p>
+    </div>
+    
+    <div class="portfolio-item">
+      <h3>Neon Skies</h3>
+      <p>A futuristic, cyberpunk adventure game with fast-paced combat and vibrant cityscapes.</p>
+    </div>
+  </div>
+  
+  <div class="achievements">
+    <div class="achievement-item">Best Indie RPG 2024</div>
+    <div class="achievement-item">Top Mobile Game in Fantasy Category</div>
+  </div>
+</section>
+
+<section class="technology-section">
+  <h2 class="section-title">Our Technology & Tools</h2>
+  <div class="tech-tools">
+    <div class="tool-item">Autodesk Maya</div>
+    <div class="tool-item">Toon Boom</div>
+    <div class="tool-item">Unreal Engine</div>
+    <div class="tool-item">Unity</div>
+    <div class="tool-item">Adobe Creative Suite</div>
+  </div>
+</section>
+
+<section class="collaborations-section">
+  <h2 class="section-title">Collaborations & Partnerships</h2>
+  <div class="partners-grid">
+    <div class="partner-item">Studio X</div>
+    <div class="partner-item">Game Dev Studio Y</div>
+    <div class="partner-item">Animation House Z</div>
+  </div>
+  <div class="testimonials">
+    <p>"Mythic Realmworks Studios is an exceptional partner that elevates every project!" - Industry Leader</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <h2>Ready to Collaborate?</h2>
+  <div class="cta">Let's Bring Your Vision to Life</div>
+  <div class="contact-form">
+    <form action="/submit" method="POST">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+  <p>Email: contact@mythicrealmworks.com</p>
+  <div class="social-links">
+    <a href="https://twitter.com/mythicrealms">Twitter</a>
+    <a href="https://www.linkedin.com/company/mythicrealmworks">LinkedIn</a>
+    <a href="https://www.artstation.com/mythicrealmworks">ArtStation</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="newsletter-signup">
+    <h3>Stay Updated</h3>
+    <form action="/subscribe" method="POST">
+      <input type="email" placeholder="Enter your email">
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+  </div>
+  <div class="legal">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <p>© 2024 Mythic Realmworks Studios. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Particle animation
+const canvas = document.querySelector('.magical-particles');
+const ctx = canvas.getContext('2d');
+
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+const particles = [];
+const particleCount = 100;
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+    this.size = Math.random() * 2;
+    this.speedX = Math.random() * 2 - 1;
+    this.speedY = Math.random() * 2 - 1;
+    this.color = `hsla(${Math.random() * 60 + 40}, 100%, 50%, ${Math.random() * 0.3 + 0.2})`;
+  }
+
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    
+    if (this.x > width) this.x = 0;
+    if (this.x < 0) this.x = width;
+    if (this.y > height) this.y = 0;
+    if (this.y < 0) this.y = height;
+  }
+
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// Initialize particles
+for (let i = 0; i < particleCount; i++) {
+  particles.push(new Particle());
+}
+
+function animate() {
+  ctx.clearRect(0, 0, width, height);
+  
+  particles.forEach(particle => {
+    particle.update();
+    particle.draw();
+  });
+  
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+// Resize handler
+window.addEventListener('resize', () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+});
+
+// GSAP animations
+gsap.from(".studio-name", {
+  duration: 1.5,
+  y: -100,
+  opacity: 0,
+  ease: "power4.out"
+});
+
+gsap.from(".logo-container", {
+  duration: 2,
+  scale: 0,
+  rotation: 360,
+  ease: "elastic.out(1, 0.3)"
+});
+
+gsap.from(".tagline", {
+  duration: 1.5,
+  y: 100,
+  opacity: 0,
+  ease: "power4.out",
+  delay: 0.5
+});
+
+// Scroll animations
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray('.portfolio-item').forEach(item => {
+  gsap.from(item, {
+    scrollTrigger: {
+      trigger: item,
+      start: "top bottom",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: "power2.out"
+  });
+});
+
+gsap.utils.toArray('.section-title').forEach(title => {
+  gsap.from(title, {
+    scrollTrigger: {
+      trigger: title,
+      start: "top bottom",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0,
+    x: -100,
+    duration: 1,
+    ease: "power2.out"
+  });
+});
+
+gsap.utils.toArray('.achievement-item').forEach(achievement => {
+  gsap.from(achievement, {
+    scrollTrigger: {
+      trigger: achievement,
+      start: "top bottom",
+      toggleActions: "play none none reverse"
+    },
+    scale: 0,
+    duration: 0.5,
+    ease: "back.out(1.7)"
+  });
+});
+</script>
+
+</body></html>
